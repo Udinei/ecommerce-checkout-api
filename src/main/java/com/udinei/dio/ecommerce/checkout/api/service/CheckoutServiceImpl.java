@@ -5,12 +5,12 @@ import com.udinei.dio.ecommerce.checkout.api.event.CheckoutCreatedEvent;
 import com.udinei.dio.ecommerce.checkout.api.repository.CheckoutRepository;
 import com.udinei.dio.ecommerce.checkout.api.resource.checkout.CheckoutRequest;
 import com.udinei.dio.ecommerce.checkout.api.streaming.CheckoutCreatedSource;
+import com.udinei.dio.ecommerce.checkout.api.util.UUIDUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -18,6 +18,7 @@ public class CheckoutServiceImpl  implements CheckoutService {
 
     private final  CheckoutRepository checkoutRepository;
     private final CheckoutCreatedSource checkoutCreatedSource;
+    private final UUIDUtil uuidUtil;
 
 
     @Override
@@ -25,21 +26,30 @@ public class CheckoutServiceImpl  implements CheckoutService {
 
         // criando um checkoutEntity com dados fake para salvar (os dados ainda nao esta vindo do front)
         final CheckoutEntity checkoutEntity = CheckoutEntity.builder()
-                .code(UUID.randomUUID().toString())
+                .code(uuidUtil.createUUID().toString())
                 .status(CheckoutEntity.Status.CREATED)
                 .build();
 
         final CheckoutEntity entity = checkoutRepository.save(checkoutEntity);
 
-        // criando evento pra publicar no brocker
+
+        // produzindo a msg apartir do evento - o checkout foi criado (entitity)
         final CheckoutCreatedEvent checkoutCreatedEvent = CheckoutCreatedEvent.newBuilder()
                 .setCheckoutCode(entity.getCode())
                 .setStatus(entity.getStatus().name())
                 .build();
 
-        // publicando o evento no brocker
-        checkoutCreatedSource.output().send(MessageBuilder.withPayload(checkoutCreatedEvent).build());
+        // obtem o topico virtual
+        // publicando no brocker a msg de que o checkout foi criado
+         checkoutCreatedSource.output().send(MessageBuilder.withPayload(checkoutCreatedEvent).build());
 
         return Optional.of(entity);
+    }
+
+    @Override
+    public Optional<CheckoutEntity> updateStatus(String checkoutCode, CheckoutEntity.Status status) {
+        final CheckoutEntity checkoutEntity = checkoutRepository.findByCode(checkoutCode).orElse(CheckoutEntity.builder().build());
+        checkoutEntity.setStatus(CheckoutEntity.Status.APPROVED);
+        return Optional.of(checkoutRepository.save(checkoutEntity));
     }
 }

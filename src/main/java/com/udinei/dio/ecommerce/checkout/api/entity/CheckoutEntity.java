@@ -23,6 +23,6 @@ public class CheckoutEntity {
 
     public enum Status {
         CREATED,
-        APROVED
+        APPROVED
     }
 }

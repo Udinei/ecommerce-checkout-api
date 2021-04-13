@@ -50,7 +50,7 @@ repositories {
 ### <b>Erro:</b>
 Os arquivos do avro, são gerados na pasta build (pasta que também é criado pelo gerador do avro) do projeto, mas o  intelliJ não encontrava esses arquivos 
 na estrutura de pastas do projeto, ocorrendo erros de imports, a solução foi 
-informar esse caminho manualmente, usando o código abaixo:
+informar esse caminho no arquivo <b>build.gradle</b> manualmente, usando o código abaixo:
 
 ### <b>Solução:</b>
 
@@ -105,4 +105,33 @@ Visualizando todos os container rodando no docker
 
 3 - Executar a aplicação
 
+
+# Schema Registry API no browser 
+<b>Nota:</b>
+
+Pode acontecer do registry schema não subir no docker, durante a execução do docker-compose,
+exibindo o erro : 
+
+Connection refused: no further information
+
+indicando que registry esta fora do ar. Subir o registry schema no dasbord do docker (windows),
+ou reiniciar o docker-compose: docker-compose down, e depois pra reiniciar 
+docker-compose up -builder -d
+###Após a execução do Produtor: checkout
+
+<b>Porta:</b> 8081
+
+<b>Browser:</b> Chrome
+
+<b>Endereços API request:</b>
+
+<pre>localhost:8081/subjects</pre>
+
+Saida, tópico registrado:
+
+<pre>["streaming.ecommerce.checkout.created-value"]</pre>
+
+###Visualizando o registry schema:
+
+http://localhost:8081/subjects/streaming.ecommerce.checkout.created-value/versions/latest
 

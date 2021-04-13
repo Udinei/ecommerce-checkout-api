@@ -1,4 +1,5 @@
 plugins {
+
 	id "com.commercehub.gradle.plugin.avro" version "0.99.99"
 	id 'org.springframework.boot' version '2.3.9.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
@@ -22,8 +23,7 @@ repositories {
 	//mavenLocal()
 	maven {
 		url 'http://packages.confluent.io/maven/'
-	}
-
+	 }
 }
 
 ext {
@@ -34,11 +34,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
 	implementation 'org.springframework.cloud:spring-cloud-stream'
-	// implementation 'org.springframework.cloud:spring-cloud-stream-binder-kafka-streams'
 	implementation 'org.springframework.cloud:spring-cloud-starter-stream-kafka'
-	//compile (group: 'org.springframework.cloud', name: 'spring-cloud-stream-binder-kafka')
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	compileOnly("org.springframework.boot:spring-boot-devtools")
+	implementation 'org.springframework.data:spring-data-envers'
+
+	// compileOnly("org.springframework.boot:spring-boot-devtools")
 	implementation 'org.apache.kafka:kafka-streams'
 	implementation 'io.confluent:kafka-avro-serializer:5.5.0'
 	runtimeOnly 'org.postgresql:postgresql'
@@ -61,7 +61,7 @@ dependencyManagement {
 sourceSets {
 	main {
 		java {
-			srcDir "${buildDir.absolutePath}/generated-main-avro-java/com/udinei/dio/ecommerce/checkout/api/event"
+			srcDir "${buildDir.absolutePath}/generated-main-avro-java/com/udinei/dio/ecommerce"
 		}
 	}
 }

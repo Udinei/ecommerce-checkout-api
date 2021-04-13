@@ -21,10 +21,10 @@ spring:
             non_contextual_creation: true
   cloud:
     stream:
-      kafka:
+      kafka: # brocker
         binder:
           autoCreateTopics: true
-          brokers: localhost:9092
+          brokers: localhost:9092 # porta padroo do kafka
           configuration:
             value:
               deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
@@ -37,7 +37,7 @@ spring:
           destination: streaming.ecommerce.checkout.created
           contentType: application/*+avro
           producer:
-            use-native-encoding: true
+            use-native-encoding: true # use o da chave configuration: acima
         payment-paid-input:
           destination: streaming.ecommerce.payment.paid
           contentType: application/*+avro
@@ -49,3 +49,7 @@ spring:
       schema:
         registry:
           url: http://localhost:8081
+  application:
+    name: checkout-api
+server:
+  port: 8085
