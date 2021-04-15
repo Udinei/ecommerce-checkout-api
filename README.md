@@ -1,11 +1,11 @@
 # ecommerce-checkout-api-udinei
 Projeto prático de uma solução de e-commerce com
-arquitetura de microsserviços (EDA) Arquitetura orientada a eventos,
+arquitetura de microsserviços EDA (Arquitetura orientada a eventos),
 criando duas aplicações fazendo a integração entre elas com Apache Kafka, e compatibilidade 
 de comunicação entre os microsserviços com Schema Registry. 
 
-![](https://i1.wp.com/codingharbour.com/wp-content/uploads/2020/03/schema_registry.jpg?resize=446%2C223&ssl=1)
-blog Coding Harbour
+![](images/arquitetura-sistema.png)
+Event-driven Architecture (EDA)
 
 # Statck
 - Java 15
@@ -43,9 +43,22 @@ da stack ver arquivo build.gradle do projeto.
    - test
      - java
 
+## Atualizando repositorio local Maven
+<pre>mvn help:evaluate -Dexpression=settings.localRepository
+</pre>
+## Compilando o projeto no terminal
+<pre>gradle build</pre>
+
+## Executando projeto no terminal
+
+<pre>gradlew booRun</pre>
+
+
+
 # Referências
 * [Live Coding Daniel Hatanaka](https://github.com/hatanakadaniel)
 * [Event-driven Architecture (EDA) usando microserviços ](https://medium.com/@marcelomg21/event-driven-architecture-eda-em-uma-arquitetura-de-micro-servi%C3%A7os-1981614cdd45#)
+* [Apache Kafka](https://www.confluent.io/what-is-apache-kafka)  
 * [Google Cloud](https://cloud.google.com/solutions/capturing-change-logs-with-debezium?hl=pt-br)
 * [Blog Emmanuel Neri](https://emmanuelneri.com.br/2019/06/04/kafka-no-spring-boot/)
 * [Blog Atitude Reflexiva](https://atitudereflexiva.wordpress.com/2020/03/05/apache-kafka-introducao/)

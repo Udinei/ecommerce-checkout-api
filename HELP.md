@@ -159,7 +159,7 @@ http://localhost:8081/subjects/streaming.ecommerce.checkout.created-value/versio
 
 ### Remover tabela do BD
 
-<pre>postgres#</pre>pre>
+<pre>postgres#</pre>
 
 ### Conectar no mesmo BD com outro usuario
 
@@ -184,3 +184,17 @@ db-checkout = nomeDaImagem
 
 <pre>select * from public.payment_entity;</pre>
 
+# Help SO
+
+### Matando processos no SO
+Para finalizar processos que mantiveram ocupadas as portas
+mesmo depois da aplicação finalizada.
+
+
+### Identificar PID da aplicação que esta rodando na porta 8080
+
+netstat -a -n -o | findstr :8080
+
+#### matando processo
+
+Taskkill /PID <pid> /F
