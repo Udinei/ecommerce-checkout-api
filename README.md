@@ -1,18 +1,18 @@
-#ecommerce-checkout-api-udinei
+# ecommerce-checkout-api-udinei
 Projeto prático de uma solução de e-commerce com
 arquitetura de microsserviços (EDA) Arquitetura orientada a eventos,
 criando duas aplicações fazendo a integração entre elas com Apache Kafka, e compatibilidade 
 de comunicação entre os microsserviços com Schema Registry. 
 
 ![](https://i1.wp.com/codingharbour.com/wp-content/uploads/2020/03/schema_registry.jpg?resize=446%2C223&ssl=1)
-imagem do bog Coding Harbour
+blog Coding Harbour
 
 # Statck
 - Java 15
 - Spring Boot 2.4.4
 - Spring Cloud Streams 
 - Gradle 6.8
-- PostGres 11
+- PostGresql 11
 - Docker v19.03.8
 - Docker-compose 
 - Zookeeper
