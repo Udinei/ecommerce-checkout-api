@@ -1,3 +1,4 @@
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/checkout
@@ -11,7 +12,6 @@ spring:
       ddl-auto: create-drop
     properties:
       hibernate:
-        default_schema: public
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
         show_sql: true
@@ -21,10 +21,10 @@ spring:
             non_contextual_creation: true
   cloud:
     stream:
-      kafka: # brocker
+      kafka:
         binder:
           autoCreateTopics: true
-          brokers: localhost:9092 # porta padroo do kafka
+          brokers: localhost:9092
           configuration:
             value:
               deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
@@ -37,7 +37,7 @@ spring:
           destination: streaming.ecommerce.checkout.created
           contentType: application/*+avro
           producer:
-            use-native-encoding: true # use o da chave configuration: acima
+            use-native-encoding: true
         payment-paid-input:
           destination: streaming.ecommerce.payment.paid
           contentType: application/*+avro

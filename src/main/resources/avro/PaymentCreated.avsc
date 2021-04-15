@@ -1,7 +1,7 @@
 {
     "type": "record",
     "name": "PaymentCreatedEvent",
-    "namespace": "com.udinei.dio.ecommerce.payment.api.event",
+    "namespace": "com.udinei.dio.ecommerce.payment.event",
     "fields": [
         {
             "name": "checkoutCode",

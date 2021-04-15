@@ -135,3 +135,52 @@ Saida, tópico registrado:
 
 http://localhost:8081/subjects/streaming.ecommerce.checkout.created-value/versions/latest
 
+# Help GIT
+### Criar uma branch a partir do master e mudar pra nova branch
+
+<pre>git checkout -b main</pre>
+
+#### removendo branch local:
+
+<pre>git branch -D nomedobranch;</pre>
+
+#### Apagando branch remota
+
+<pre>git push nomedoorigin dobranch --delete </pre>
+
+# Help Postgres
+### Acessar o banco postgres com o usuario postgres
+
+<pre>psql -U postgres checkout</pre>
+
+### Listar tabelas do banco
+
+<pre>postgres# \dt</pre>
+
+### Remover tabela do BD
+
+<pre>postgres#</pre>pre>
+
+### Conectar no mesmo BD com outro usuario
+
+<pre>postgres=# \c outrouser</pre>
+
+### Removendo tabela do BD
+
+<pre>DROP TABLE table_name;</pre>
+
+# Help Docker
+### Acessando banco de dados payment, no docker
+
+<pre>psql -h localhost -p 5433 -U admin payment</pre>
+
+Acessando o banco de dados no docker via um teminal dedicado
+Uso: Quando o banco local já esta usando a porta do banco padrão
+db-checkout = nomeDaImagem
+
+<pre>docker exec -it db-checkout psql -U admin checkout</pre>
+
+#### Listando dados da tabela
+
+<pre>select * from public.payment_entity;</pre>
+

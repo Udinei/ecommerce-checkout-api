@@ -1,7 +1,7 @@
 package com.udinei.dio.ecommerce.checkout.api.service;
 
 import com.udinei.dio.ecommerce.checkout.api.entity.CheckoutEntity;
-import com.udinei.dio.ecommerce.checkout.api.event.CheckoutCreatedEvent;
+import com.udinei.dio.ecommerce.checkout.event.CheckoutCreatedEvent;
 import com.udinei.dio.ecommerce.checkout.api.repository.CheckoutRepository;
 import com.udinei.dio.ecommerce.checkout.api.resource.checkout.CheckoutRequest;
 import com.udinei.dio.ecommerce.checkout.api.streaming.CheckoutCreatedSource;
