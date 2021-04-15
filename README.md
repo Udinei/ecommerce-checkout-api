@@ -23,6 +23,11 @@ Event-driven Architecture (EDA)
 
 Nota: Para detalhes, como versão e dependências
 da stack ver arquivo build.gradle do projeto.
+# Microserviço relacionado
+* [Payment](https://github.com/Udinei/ecommerce-payment-api)
+
+# FrontEnd 
+* [Cart](https://github.com/Udinei/ecommerce-checkout-frontend)
 
 # Estrutura do projeto
 - build (gerado pelo apache avro)
