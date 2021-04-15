@@ -1,8 +1,8 @@
 # ecommerce-checkout-api-udinei
 Projeto prático de uma solução de e-commerce com
-arquitetura de microsserviços EDA (Arquitetura orientada a eventos),
-criando duas aplicações fazendo a integração entre elas com Apache Kafka, e compatibilidade 
-de comunicação entre os microsserviços com Schema Registry. 
+arquitetura de microserviços EDA (Arquitetura orientada a eventos),
+com a criação de duas aplicações (microserviço) integradas com Apache Kafka,
+e compatibilidade de comunicação utilizando Apache Avro e Schema Registry. 
 
 ![](images/arquitetura-sistema.png)
 Event-driven Architecture (EDA)
