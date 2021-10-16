@@ -1,7 +1,7 @@
 # ecommerce-checkout-api-udinei
 Projeto prático de uma solução de e-commerce com
 arquitetura de microserviços EDA (Arquitetura orientada a eventos),
-com a criação de duas aplicações (microserviço) integradas com Apache Kafka,
+com a criação de duas aplicações Payment e Cart (microserviço) integrados com a utilização do Apache Kafka,
 e compatibilidade de comunicação utilizando Apache Avro e Schema Registry. 
 
 ![](images/arquitetura-sistema.png)
